@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/fabruun/go-customers-api/application"
+	application "github.com/fabruun/go-customers/application/app"
 )
 
 func main() {
