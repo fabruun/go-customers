@@ -1,9 +1,12 @@
 package application
 
-type ServiceInterface interface {
-	List() ([]Customer, error)
+import "github.com/fabruun/go-customers/domain"
+
+type CustomerServiceInterface interface {
+	List() ([]*domain.Customer, error)
 }
 
-func (p *Customer) List() ([]Customer, error) {
-	// TODO
+type CustomerService struct{}
+
+func (cs *CustomerService) List([]*domain.Customer, error) {
 }
