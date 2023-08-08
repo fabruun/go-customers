@@ -12,7 +12,7 @@ type App struct {
 
 func New() *App {
 	app := &App{
-		router: &http,
+		router: loadRoutes(),
 	}
 
 	return app

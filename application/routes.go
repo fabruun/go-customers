@@ -5,6 +5,8 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+
+	"github.com/fabruun/go-customers/repository"
 )
 
 func loadRoutes() *chi.Mux {
@@ -16,9 +18,13 @@ func loadRoutes() *chi.Mux {
 		w.WriteHeader(http.StatusOK)
 	})
 
-	router.Route("/customers")
+	router.Route("/customers", loadCustomerRoutes)
+
+	return router
 }
 
 func loadCustomerRoutes(router chi.Router) {
-	customerHandler := &handler.Customer{}
+	customerHandler := &repository.Customer{}
+
+	router.Get("/", customerHandler.List)
 }
