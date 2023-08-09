@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/fabruun/go-customers/domain"
+	domain "github.com/fabruun/go-customers/domain"
 )
 
-type JsonDeserializerInterface interface {
+type JsonMapperinterface interface {
 	ReadJsonFile(path string)
 	MapDataFromJSON() *domain.Customers
 }
@@ -16,7 +16,7 @@ type JsonDeserializerInterface interface {
 type JsonMapper struct {
 	JsonFile  *os.File          `json:"file"`
 	ByteValue []byte            `json:"byte_value"`
-	Customers *domain.Customers `json:"customers"`
+	customers *domain.Customers `json:"customers"`
 }
 
 func (p *JsonMapper) ReadJsonFile(path string) {
@@ -33,8 +33,10 @@ func (p *JsonMapper) MapDataFromJSON() *domain.Customers {
 		fmt.Println(err)
 		panic(err)
 	}
+  p.customers = 
 	var customers domain.Customers
 	json.Unmarshal(byteValue, &customers)
+
 
 	return *customers
 }
