@@ -6,7 +6,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 
-	"github.com/fabruun/go-customers/domain"
+	"github.com/fabruun/go-customers/application"
 )
 
 func loadRoutes() *chi.Mux {
@@ -24,7 +24,7 @@ func loadRoutes() *chi.Mux {
 }
 
 func loadCustomerRoutes(router chi.Router) {
-	customerHandler := &domain.Customer{}
+	customerService := &application.CustomerService{}
 
-	router.Get("/", customerHandler.List)
+	router.Get("/")
 }

@@ -1,28 +1,40 @@
 package application
 
 import (
+	"encoding/json"
+	"fmt"
 	"os"
 
 	"github.com/fabruun/go-customers/domain"
 )
 
 type JsonDeserializerInterface interface {
-	readJsonFile(path string) error
-	deserializeFromJson(data []byte) ([]map[string]string, error)
-	mapDataToStruct(data []map[string]string) ([]*domain.Customer, error)
+	ReadJsonFile(path string)
+	MapDataFromJSON() *domain.Customers
 }
 
 type JsonMapper struct {
-	File       []byte              `json:"file"`
-	MappedData []map[string]string `json:"mapped_data"`
-	Customers  []*domain.Customer  `json:"customers"`
+	JsonFile  *os.File          `json:"file"`
+	ByteValue []byte            `json:"byte_value"`
+	Customers *domain.Customers `json:"customers"`
 }
 
-func (p *JsonMapper) readJsonFile(path string) error {
-	file, err := os.ReadFile(path)
+func (p *JsonMapper) ReadJsonFile(path string) {
+	jsonFile, err := os.Open(path)
 	if err != nil {
 		panic(err)
 	}
-	p.File = file
-	return nil
+	p.JsonFile = jsonFile
+}
+
+func (p *JsonMapper) MapDataFromJSON() *domain.Customers {
+	byteValue, err := os.ReadFile(p.JsonFile.Name())
+	if err != nil {
+		fmt.Println(err)
+		panic(err)
+	}
+	var customers domain.Customers
+	json.Unmarshal(byteValue, &customers)
+
+	return *customers
 }
