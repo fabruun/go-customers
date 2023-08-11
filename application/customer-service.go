@@ -18,8 +18,9 @@ func (p *Customer) List(w http.ResponseWriter, req *http.Request) {
 	GenerateUUID(&mapper)
 	customers := mapper.Customers.Customers
 	sortCustomers(&mapper)
-	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.WriteHeader(http.StatusOK)
 	response, err := json.Marshal(&customers)
 	if err != nil {
 		log.Fatalf("Couldn't JSON marshal response. With error: %v", err)
