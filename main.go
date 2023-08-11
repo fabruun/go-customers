@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/fabruun/go-customers/application"
+	"github.com/fabruun/go-customers/api"
 )
 
 func main() {
-	app := application.New()
+	app := api.New()
 
-	err := app.Start(context.TODO())
+	err := app.Start(context.Background())
 	if err != nil {
 		fmt.Println("failed to start app", err)
 	}

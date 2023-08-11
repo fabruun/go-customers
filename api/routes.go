@@ -3,6 +3,7 @@ package api
 import (
 	"net/http"
 
+	"github.com/fabruun/go-customers/application"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
@@ -22,5 +23,7 @@ func loadRoutes() *chi.Mux {
 }
 
 func loadCustomerRoutes(router chi.Router) {
-	router.Get("/")
+	service := application.Customer{}
+
+	router.Get("/", service.List)
 }

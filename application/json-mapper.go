@@ -2,7 +2,7 @@ package application
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"os"
 
 	domain "github.com/fabruun/go-customers/domain"
@@ -10,13 +10,13 @@ import (
 
 type JsonMapperinterface interface {
 	ReadJsonFile(path string)
-	MapDataFromJSON() *domain.Customers
+	MapDataFromJSON()
 }
 
 type JsonMapper struct {
-	JsonFile  *os.File          `json:"file"`
-	ByteValue []byte            `json:"byte_value"`
-	customers *domain.Customers `json:"customers"`
+	JsonFile  *os.File         `json:"file"`
+	ByteValue []byte           `json:"byte_value"`
+	Customers domain.Customers `json:"customers"`
 }
 
 func (p *JsonMapper) ReadJsonFile(path string) {
@@ -27,16 +27,14 @@ func (p *JsonMapper) ReadJsonFile(path string) {
 	p.JsonFile = jsonFile
 }
 
-func (p *JsonMapper) MapDataFromJSON() *domain.Customers {
+func (p *JsonMapper) MapDataFromJSON() {
 	byteValue, err := os.ReadFile(p.JsonFile.Name())
 	if err != nil {
-		fmt.Println(err)
-		panic(err)
+		path := p.JsonFile.Name()
+		log.Fatalf("Failed to read %s. With error: %v", path, err)
 	}
-  p.customers = 
 	var customers domain.Customers
-	json.Unmarshal(byteValue, &customers)
-
-
-	return *customers
+	p.ByteValue = byteValue
+	json.Unmarshal(byteValue, &customers.Customers)
+	p.Customers = customers
 }

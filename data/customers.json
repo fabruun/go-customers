@@ -1,7 +1,7 @@
 [
   {
-    "firstName": "Jane",
-    "lastName": "Doe",
+    "first_name": "Jane",
+    "last_name": "Doe",
     "email": "jane.doe@email.com",
     "address": {
       "street": "123 Main St",
@@ -11,8 +11,8 @@
     }
   },
   {
-    "firstName": "John",
-    "lastName": "Smith",
+    "first_name": "John",
+    "last_name": "Smith",
     "email": "john.smith@email.com",
     "address": {
       "street": "123 Main St",
@@ -22,8 +22,8 @@
     }
   },
   {
-    "firstName": "Jane",
-    "lastName": "Smith",
+    "first_name": "Jane",
+    "last_name": "Smith",
     "email": "jane.smith@email.com",
     "address": {
       "street": "123 Main St",
@@ -33,8 +33,8 @@
     }
   },
   {
-    "firstName": "John",
-    "lastName": "Jones",
+    "first_name": "John",
+    "last_name": "Jones",
     "email": "john.jones@email.com",
     "address": {
       "street": "123 Main St",
@@ -44,8 +44,8 @@
     }
   },
   {
-    "firstName": "Jane",
-    "lastName": "Jones",
+    "first_name": "Jane",
+    "last_name": "Jones",
     "email": "jane.jones@email.com",
     "address": {
       "street": "123 Main St",
@@ -55,8 +55,8 @@
     }
   },
   {
-    "firstName": "John",
-    "lastName": "Williams",
+    "first_name": "John",
+    "last_name": "Williams",
     "email": "john.williams@email.com",
     "address": {
       "street": "123 Main St",
@@ -66,8 +66,8 @@
     }
   },
   {
-    "firstName": "Jane",
-    "lastName": "Williams",
+    "first_name": "Jane",
+    "last_name": "Williams",
     "email": "jane.williams@email.com",
     "address": {
       "street": "123 Main St",
@@ -77,8 +77,8 @@
     }
   },
   {
-    "firstName": "John",
-    "lastName": "Brown",
+    "first_name": "John",
+    "last_name": "Brown",
     "email": "john.brown@email.com",
     "address": {
       "street": "123 Main St",
@@ -88,8 +88,8 @@
     }
   },
   {
-    "firstName": "Jane",
-    "lastName": "Brown",
+    "first_name": "Jane",
+    "last_name": "Brown",
     "email": "jane.brown@email.com",
     "address": {
       "street": "123 Main St",
